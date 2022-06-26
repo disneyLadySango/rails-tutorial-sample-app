@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # selfは現在のユーザを示しています
+  before_save { self.email = email.downcase }
+  
   validates :name,
     presence: true,
     length: { maximum: 50  }
